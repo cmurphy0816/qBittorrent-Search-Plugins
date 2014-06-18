@@ -22,7 +22,7 @@ import urllib2, re
 from urllib import urlencode
 
 class demonoid(object):
-	url  = 'http://www.demonoid.me'
+	url  = 'http://www.demonoid.ph'
 	name = 'Demonoid'
 
 	supported_categories = {
@@ -42,7 +42,7 @@ class demonoid(object):
 			"size"        : -1,
 			"seeds"       : -1,
 			"leech"       : -1,
-			"engine_url"  : "http://www.demonoid.me",
+			"engine_url"  : "http://www.demonoid.ph",
 			"description" : -1
 		}
 		return True
@@ -61,7 +61,7 @@ class demonoid(object):
 		nextpage = "/files/?" + urlencode(urldata) + '&query=' + what
 		while nextpage != False:
 			try:
-				u = urllib2.urlopen("http://www.demonoid.me{0}".format(nextpage))
+				u = urllib2.urlopen("http://www.demonoid.ph{0}".format(nextpage))
 			except:
 				break
 
@@ -85,7 +85,7 @@ class demonoid(object):
 									flag = 0
 									continue
 								m = re.search("<a href=\"(.+)\">(.+)</a>",line)
-								self.temp["description"] = "http://www.demonoid.me{0}".format(m.group(1))
+								self.temp["description"] = "http://www.demonoid.ph{0}".format(m.group(1))
 								self.temp["link"] = self.temp["description"].replace("details","download")
 								self.temp["name"] = m.group(2)
 								pos = 2
